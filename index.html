@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="assets/css/reset/css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <title>Crystal Collector</title>
+</head>
+
+<body>
+
+  <div class="row justify-content-around">
+    <div class="col-lg-5" id="instructions">
+      <h1>Crystal Collector</h1>
+      <p>At the start of the game, the Master Crystal will be assigned a random value.</p>
+      <p>You have four crystals below. By clicking on a crystal you will add a specific amount 
+          of points to the total value of your crystals.</p>
+      <p>You win the game by matching the total value of your crystals to that of the Master Crystal. 
+          You lose if the total value of your crystals exceeds that of the Master Crystal.</p>
+      <p>The value of each crystal is hidden from you until you click on it.</p>
+      <p>Each time the game starts, the value of each crystal will change.</p>
+    </div> <!--closes #instructions-->
+
+    <div class="col-lg-3">
+      <div class="container">
+        <a href="https://placeholder.com"><img src="https://via.placeholder.com/350x300"></a>
+        <!--will hold image of Master Crystal-->
+
+        <h1 class="master-crystal-val"></h1>
+        
+        <footer id="master">
+          <h1>Master Crystal</h1>
+        </footer>
+      </div> 
+    </div>
+  </div> <!--closes row 1-->
+
+  <div class="row justify-content-around">
+      <div class="col-sm-2"></div>
+      
+    <div class="col-sm-2">
+      <div class="container">
+        <div class="crystal-image">
+          <a href="https://placeholder.com"><img src="https://via.placeholder.com/200x150" id="gem1"></a>
+          <!--will hold image of crystal-->
+          
+          <h2 class="crystal-num-val"><!-- num- toggle hide/unhide --></h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-2">
+      <div class="container">
+        <div class="crystal-image">
+          <a href="https://placeholder.com"><img src="https://via.placeholder.com/200x150" id="gem2"></a>
+          <!--will hold image of crystal-->
+            
+          <h2 class="crystal-num-val"><!-- num- toggle hide/unhide --></h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-2">
+      <div class="container">
+        <div class="crystal-image">
+          <a href="https://placeholder.com"><img src="https://via.placeholder.com/200x150" id="gem3"></a>
+          <!--will hold image of crystal-->
+            
+          <h2 class="crystal-num-val"><!-- num- toggle hide/unhide --></h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-2">
+      <div class="container">
+        <div class="crystal-image">
+          <a href="https://placeholder.com"><img src="https://via.placeholder.com/200x150" id="gem4"></a>
+          <!--will hold image of crystal-->
+            
+          <h2 class="crystal-num-val"><!-- num- toggle hide/unhide --></h2>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-sm-2"></div>
+  </div> <!--closes row 2-->
+<!--
+  <div class="row justify-content-around" id="counters">
+    
+    <div class="col-sm-3">
+      <h5>Gems current value:  
+        <p><span id="current-val"></span></p>
+      </h5>
+    </div>
+
+    <div class="col-sm-1">
+      <h5>Wins:   
+        <p><span id="wins"></span></p>
+      </h5>    
+    </div>
+
+    <div class="col-sm-1">
+      <h5>Losses: 
+        <p><span id="losses"></span></p>
+      </h5>
+    </div>
+  
+  </div> --> <!--closes row 3--> 
+
+ 
+  <div class="card-deck">
+    <div class="col-sm-3"></div>
+
+
+    <div class="card text-white bg-info mb-3" style="max-width: 24rem;">
+      <div class="card-body">
+        <h5 class="card-title">Total value of your crystals: <span id="current-val"></span></h5>
+      </div>
+    </div>
+
+    <div class="card text-white bg-info mb-3" style="max-width: 10rem;">
+      <div class="card-body">
+        <h5 class="card-title">Wins: <span id="wins"></span></h5>
+      </div>
+    </div>
+
+    <div class="card text-white bg-info mb-3" style="max-width: 10rem;">
+      <div class="card-body">
+        <h5 class="card-title">Losses: <span id="losses"></span></h5>
+      </div>
+    </div>
+
+  </div> <!-- closes card-group-->
+
+
+  <script type="text/javascript" src="assets/javascript/game.js">
+  </script>
+
+</body>
+</html>
