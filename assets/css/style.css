@@ -1,3 +1,17 @@
 /* #counters {
   float: left;
 } */
+
+/*.master-container {
+  position: relative;
+}
+
+#master-crystal {
+  position: absolute;
+}
+
+#master-crystal-val {
+  z-index: 99;
+  position: absolute;
+  margin-top:
+}
