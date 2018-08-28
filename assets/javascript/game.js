@@ -22,24 +22,25 @@ var losses = 0;
     //FUNCTIONS
   //================================================================================================================
 
+
 function play()   {
 
     //At start/restart of game, this number will be 0
-  var currentGemTot = 0; 
+  currentGemTot = 0; 
 
     //Assign a masterGem value (random number between 19 & 120)
-  masterGem = Math.floor(Math.random() * 101 + 19);
-      console.log("masterGem value is " + masterGem);
+masterGem = Math.floor(Math.random() * 101 + 19);
+console.log("masterGem value is " + masterGem);
 
     //Assign a value to each gem (random number between 1 & 12)
   crystal.gem1.value = Math.floor(Math.random() * 11 + 1);
-      console.log("gem1 value is " + crystal.gem1.value);
+    console.log("gem1 value is " + crystal.gem1.value);
   crystal.gem2.value = Math.floor(Math.random() * 11 + 1);
-      console.log("gem2 value is " + crystal.gem2.value);
+    console.log("gem2 value is " + crystal.gem2.value);
   crystal.gem3.value = Math.floor(Math.random() * 11 + 1);
-      console.log("gem3 value is " + crystal.gem3.value);
+    console.log("gem3 value is " + crystal.gem3.value);
   crystal.gem4.value = Math.floor(Math.random() * 11 + 1);
-      console.log("gem4 value is " + crystal.gem4.value);
+    console.log("gem4 value is " + crystal.gem4.value);
 
     //Update HTML game display
 $("#current-val").html(currentGemTot);
@@ -48,9 +49,35 @@ $("#master-crystal-val").html(masterGem);
 
 var addValue = function(crystal)  {
   currentGemTot = currentGemTot + crystal.value;
+  $("#current-val").html(currentGemTot);
+  
+  checkWin();
+  
+    console.log("Your current gem total is " + currentGemTot);
 }
 
+var checkWin = function() {
+  if(currentGemTot > masterGem) {
+    ++losses;
+    
+    alert("Better luck next time");
+    console.log("You lose")
+    
+    $("#losses").html(losses);
 
+    play();
+  }
+  else if (currentGemTot == masterGem) {
+    ++wins;
+
+    alert("Hooray! You win!");
+    console.log("Hooray! You win!");
+    
+    $("#wins").html(wins);
+
+    play();
+  }
+}
 
 
     //GAME PLAY
@@ -61,25 +88,19 @@ play();
 $("#gem1").click(function()  {
     //console.log("gem1 was clicked");
   addValue(crystal.gem1);
-    console.log("Your current gem total is " + currentGemTot);
 });
   
 $("#gem2").click(function()  {
     //console.log("gem2 was clicked");
   addValue(crystal.gem2);
-    console.log("Your current gem total is " + currentGemTot);
 });
 
 $("#gem3").click(function()  {
     //console.log("gem3 was clicked");
   addValue(crystal.gem3);
-    console.log("Your current gem total is " + currentGemTot);
 });
 
 $("#gem4").click(function()  {
     //console.log("gem4 was clicked");
   addValue(crystal.gem4);
-    console.log("Your current gem total is " + currentGemTot);
 });
-
-

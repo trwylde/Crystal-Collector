@@ -2,6 +2,9 @@
   float: left;
 } */
 
+.background {
+  background: url=("images/galaxy-rs.jpg")
+}
 /*.master-container {
   position: relative;
 }
