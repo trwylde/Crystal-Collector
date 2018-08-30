@@ -8,7 +8,7 @@ a random value, as are each of the four crystals below.
 
 To win a round, you must collect crystals by clicking on
 them. The value of each crystal is hidden from you. Each
-time you collect one, its value will be added to you total.
+time you collect one, its value will be added to your total.
 If the total value of your crystals equals that of the 
 Master Crystal, you win that round and your wins increase
 by one.
