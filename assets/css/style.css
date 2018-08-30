@@ -1,20 +1,7 @@
-/* #counters {
-  float: left;
-} */
-
-.background {
-  background: url=("images/galaxy-rs.jpg")
-}
-/*.master-container {
-  position: relative;
+.row {
+  margin-top: 50px;
 }
 
-#master-crystal {
-  position: absolute;
-}
-
-#master-crystal-val {
-  z-index: 99;
-  position: absolute;
-  margin-top:
+.card-deck {
+  margin-top: 50px;
 }

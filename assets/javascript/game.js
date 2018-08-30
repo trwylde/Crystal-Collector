@@ -3,104 +3,118 @@
 
     //Each crystal will be assigned a random hidden value between 1 & 12 at start/restart of game.
 var crystal = {
-  gem1: { name: "teal", value: 0},
-  gem2: { name: "red", value: 0},
-  gem3: { name: "purple", value: 0},
-  gem4: { name: "violet", value: 0}
+  teal: { name: "teal", value: 0},
+  red: { name: "red", value: 0},
+  purple: { name: "purple", value: 0},
+  violet: { name: "violet", value: 0}
 };
 
-    //masterGem will be a assigned a random displayed value between 19 & 120 at start/restart of game.
-var masterGem = 0;
 
+    //INCREMENTALS
+  //================================================================================================================
+    //masterCrystal will be a assigned a random displayed value between 19 & 120 at start/restart of game.
+var masterCrystal = 0;
+var currentCrystalTotal = 0;
+    
     //SCORING
   //================================================================================================================
-  
-var currentGemTot = 0; 
 var wins = 0;
 var losses = 0;
 
     //FUNCTIONS
   //================================================================================================================
 
-
-function play()   {
-
-    //At start/restart of game, this number will be 0
-  currentGemTot = 0; 
-
-    //Assign a masterGem value (random number between 19 & 120)
-masterGem = Math.floor(Math.random() * 101 + 19);
-console.log("masterGem value is " + masterGem);
-
-    //Assign a value to each gem (random number between 1 & 12)
-  crystal.gem1.value = Math.floor(Math.random() * 11 + 1);
-    console.log("gem1 value is " + crystal.gem1.value);
-  crystal.gem2.value = Math.floor(Math.random() * 11 + 1);
-    console.log("gem2 value is " + crystal.gem2.value);
-  crystal.gem3.value = Math.floor(Math.random() * 11 + 1);
-    console.log("gem3 value is " + crystal.gem3.value);
-  crystal.gem4.value = Math.floor(Math.random() * 11 + 1);
-    console.log("gem4 value is " + crystal.gem4.value);
-
-    //Update HTML game display
-$("#current-val").html(currentGemTot);
-$("#master-crystal-val").html(masterGem);
+    //function that can be customized and assigns the five random values needed each round
+var randomValue = function(min, max)  {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+var play = function() {
+
+      //At start/restart of game, this number will be 0
+  currentCrystalTotal = 0;
+
+      //Assign a masterCrystal value (random number between 19 & 120)
+  masterCrystal = randomValue(19, 120);
+
+    //Assign each crystal a value (random number between 1 & 12)    
+  crystal.teal.value = randomValue(1, 12);
+  crystal.red.value = randomValue(1, 12);
+  crystal.purple.value = randomValue(1, 12);
+  crystal.violet.value = randomValue(1, 12);
+  
+    //Update HTML game display
+  $("#current-val").html(currentCrystalTotal);
+  $("#master-crystal-val").html(masterCrystal);
+  $("#master").html(" ");
+    //Testing in console
+    console.log("================================================")
+    console.log("masterCrystal value is " + masterCrystal);
+    console.log("teal: " + crystal.teal.value + " | red: " + crystal.red.value + " | purple: " + crystal.purple.value + " | violet : " + crystal.violet.value);
+    console.log("================================================")
+
+}   
+
 
 var addValue = function(crystal)  {
-  currentGemTot = currentGemTot + crystal.value;
-  $("#current-val").html(currentGemTot);
   
+    //To increase currentCrystalTotal
+  currentCrystalTotal = currentCrystalTotal + crystal.value;
+    console.log("Your current crystal total is " + currentCrystalTotal);
+
+    //Update HTML game display
+  $("#current-val").html(currentCrystalTotal);
+
+    //Call checkWin function
   checkWin();
-  
-    console.log("Your current gem total is " + currentGemTot);
+
+  //try moving win/loss alerts and play(); to this area
 }
 
+    //Check for win or loss
 var checkWin = function() {
-  if(currentGemTot > masterGem) {
+  if(currentCrystalTotal > masterCrystal) {
+    alert("You Lose! Better luck next time!")
+
+    //Update losses program
     ++losses;
-    
-    alert("Better luck next time");
-    console.log("You lose")
-    
+
+    //Update losses in HTML
     $("#losses").html(losses);
 
     play();
   }
-  else if (currentGemTot == masterGem) {
+  else if (currentCrystalTotal == masterCrystal)  {
+    alert("Hooray! You win!")
+
+    //Update wins program
     ++wins;
 
-    alert("Hooray! You win!");
-    console.log("Hooray! You win!");
-    
+    //Update wins in HTML
     $("#wins").html(wins);
 
     play();
   }
 }
 
+//your calling play() twice. Try refactoring code to call it only once. This should eliminate the page resetting before final total has been displyed or logged to console.
 
     //GAME PLAY
   //================================================================================================================  
 
 play();
 
-$("#gem1").click(function()  {
-    //console.log("gem1 was clicked");
-  addValue(crystal.gem1);
-});
+$("#teal").click(function() {
   
-$("#gem2").click(function()  {
-    //console.log("gem2 was clicked");
-  addValue(crystal.gem2);
-});
+  addValue(crystal.teal);
 
-$("#gem3").click(function()  {
-    //console.log("gem3 was clicked");
-  addValue(crystal.gem3);
 });
-
-$("#gem4").click(function()  {
-    //console.log("gem4 was clicked");
-  addValue(crystal.gem4);
+$("#red").click(function() {
+  addValue(crystal.red);
+});
+$("#purple").click(function() {
+  addValue(crystal.purple);
+});
+$("#violet").click(function() {
+  addValue(crystal.violet);
 });
