@@ -60,11 +60,9 @@ var addValue = function(crystal)  {
   
     //To increase currentCrystalTotal
   currentCrystalTotal = currentCrystalTotal + crystal.value;
-    console.log("Your current crystal total is " + currentCrystalTotal);
-
     //Update HTML game display
-  $("#current-val").html(currentCrystalTotal);
-
+    $("#current-val").text(currentCrystalTotal);
+    //console.log("Your current crystal total is " + currentCrystalTotal);
     //Call checkWin function
   checkWin();
 
@@ -74,26 +72,34 @@ var addValue = function(crystal)  {
     //Check for win or loss
 var checkWin = function() {
   if(currentCrystalTotal > masterCrystal) {
-    alert("You Lose! Better luck next time!")
-
+  
     //Update losses program
     ++losses;
-
-    //Update losses in HTML
-    $("#losses").html(losses);
-
-    play();
+   //document.write("You Lose! Better luck next time!")
+   setTimeout(function() {
+    alert("You Lose! Better luck next time!")
+  }, 0)
+    
+     //Update losses in HTML
+   $("#losses").html(losses);
+   setTimeout(function() {
+   play();
+  }, 3)
   }
   else if (currentCrystalTotal == masterCrystal)  {
-    alert("Hooray! You win!")
-
+    
+    setTimeout(function() {
+      alert("Hooray! You win!")
+    }, 0)
     //Update wins program
     ++wins;
 
     //Update wins in HTML
     $("#wins").html(wins);
 
-    play();
+    setTimeout(function() {
+      play();
+     }, 3)
   }
 }
 
